@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ООП_лаба_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Klient kl_obj = new Klient();
+            Kl_obj(kl_obj);
+            Klient kl_obj1 = new Klient();
+            Kl_obj(kl_obj1);
+            Console.ReadKey();
+        }
+          static void Kl_obj(Klient obj)
+        {
+            Console.WriteLine($"Id: {obj.Id}");
+            Console.WriteLine($"Имя: {obj.name}");
+            Console.WriteLine($"Возраст: {obj.Age}");
+            if(obj.man == true) Console.WriteLine($"Пол: мужчина");
+            else Console.WriteLine($"Пол: женщина");
+            Console.WriteLine($"Логин: {obj.login}");
+            Console.WriteLine($"Пароль: {obj.Keypassword}");
+            Console.WriteLine();
+        }
+    }
+    class Klient
+    {
+        public Klient(string NAME, int AGE, bool MAN, string LOGIN, string KEYPASSWORD)
+        {
+            Count++;
+            Id = Count;
+            name = NAME;
+            Age = AGE;
+            man = MAN;
+            login = LOGIN;
+            Keypassword = KEYPASSWORD;
+        }
+        public Klient()
+        {
+            Count++;
+            Id = Count;
+            name = "Klient";
+            Age = 18;
+            man = true;
+            login = "Klient magazina";
+            Keypassword = "123456";
+        }
+        private static int Count = 0;
+        private int id;
+        public string name; 
+        private int age; 
+        public bool man; //пол: true - если мужчина и false - если женщина
+        public string login; // логин
+        private string keypasswor;  // пароль
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public string Keypassword
+        {
+            get { return keypasswor; }
+            set { keypasswor = value; }
+        }
+        public int Age
+        {
+            get { return age; }
+            set
+            { if (age > 18) age = value; }
+        }
+    }
+}
